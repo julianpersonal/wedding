@@ -15,11 +15,14 @@
 
 .wedding-nav {
   background-color: var(--background-color);
-  padding: 1rem 0;
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 50px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links {
@@ -28,7 +31,7 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 1rem;
 }
 
 .nav-links button {
@@ -49,18 +52,21 @@
 .wedding-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
+  padding-top: 80px;
 }
 
 .home-section {
   text-align: center;
-  padding: 4rem 0;
 }
 
 .home-section h1 {
   font-size: 3.5rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   color: var(--accent-color);
+  padding: 0 1rem;
 }
 
 .countdown {
@@ -82,7 +88,7 @@ section {
 section h2 {
   font-size: 2.5rem;
   color: var(--accent-color);
-  margin-bottom: 2rem;
+  margin: 3rem 0;
   text-align: center;
 }
 
@@ -154,6 +160,10 @@ section h2 {
 @media (max-width: 768px) {
   .mobile-menu-button {
     display: block;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    z-index: 1001;
   }
 
   .nav-links {
@@ -163,8 +173,10 @@ section h2 {
     left: 0;
     right: 0;
     background-color: var(--background-color);
-    padding: 1rem;
+    padding: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .nav-links.open {
@@ -172,8 +184,8 @@ section h2 {
   }
 
   .nav-links button {
+    padding: 1rem;
     width: 100%;
-    padding: 0.75rem;
     text-align: center;
     border-bottom: 1px solid var(--secondary-color);
   }
@@ -182,11 +194,296 @@ section h2 {
     border-bottom: none;
   }
 
+  .home-section {
+    padding-top: 3rem;
+  }
+
   .home-section h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+    word-wrap: break-word;
+  }
+
+  .countdown {
+    margin: 1rem;
   }
 
   .countdown h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .wedding-content {
+    padding-top: 3rem;
+  }
+
+  section {
+    padding-top: 1.5rem;
+  }
+
+  section h2 {
+    margin: 2rem 0;
+  }
+
+  .wedding-nav {
+    height: 60px;
+  }
+
+  section {
+    margin-top: 80px;
+  }
+
+  .home-section {
+    margin-top: 30px;
+    padding-top: 1.5rem;
+  }
+}
+
+/* Timeline */
+.timeline {
+  margin: 4rem 0;
+  padding: 2rem;
+  position: relative;
+}
+
+.timeline-events {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-events::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: var(--primary-color);
+  transform: translateX(-50%);
+}
+
+.timeline-event {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.timeline-date {
+  width: 120px;
+  text-align: right;
+  padding-right: 2rem;
+  font-weight: bold;
+}
+
+.timeline-marker {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  margin: 0 2rem;
+  flex-shrink: 0;
+}
+
+.timeline-description {
+  width: 120px;
+  padding-left: 2rem;
+  text-align: left;
+}
+
+/* Gallery */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.photo-placeholder {
+  aspect-ratio: 3/2;
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.photo-placeholder:hover {
+  transform: scale(1.05);
+}
+
+/* RSVP Form */
+.rsvp-form, .guestbook-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.submit-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: var(--primary-color);
+}
+
+/* Guest Book */
+.guestbook-messages {
+  margin-top: 3rem;
+}
+
+.guestbook-message {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.guestbook-message h3 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.guestbook-message small {
+  display: block;
+  margin-top: 0.5rem;
+  color: #666;
+}
+
+/* Registry */
+.registry-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.registry-card {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.registry-card:hover {
+  transform: translateY(-5px);
+}
+
+.registry-card h3 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+/* Travel & Accommodations */
+.hotel-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.travel-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.map-placeholder {
+  aspect-ratio: 16/9;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+}
+
+.directions h4 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .timeline-events::before {
+    left: 30px;
+  }
+
+  .timeline-event {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 50px;
+  }
+
+  .timeline-date {
+    width: auto;
+    text-align: left;
+    padding-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: 20px;
+    margin: 0;
+  }
+
+  .timeline-description {
+    width: auto;
+    padding-left: 0;
+  }
+
+  .travel-info {
+    grid-template-columns: 1fr;
+  }
+
+  .registry-links {
+    grid-template-columns: 1fr;
   }
 }
