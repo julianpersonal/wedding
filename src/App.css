@@ -1,42 +1,128 @@
-#root {
-  max-width: 1280px;
+:root {
+  --primary-color: #d4b9a0;
+  --secondary-color: #f5e6e0;
+  --text-color: #2c3e50;
+  --background-color: #ffffff;
+  --accent-color: #8b7355;
+}
+
+.wedding-app {
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.wedding-nav {
+  background-color: var(--background-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-family: 'Cormorant Garamond', serif;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links button:hover {
+  color: var(--primary-color);
+}
+
+.wedding-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.home-section {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.home-section h1 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
+}
+
+.countdown {
+  background-color: var(--secondary-color);
   padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.countdown h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.event-details {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.event-details h3 {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.event-details p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.rsvp-section, .registry-section, .travel-section {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .home-section h1 {
+    font-size: 2.5rem;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .countdown h2 {
+    font-size: 2rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
