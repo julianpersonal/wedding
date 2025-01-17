@@ -1,7 +1,4 @@
 import { useState } from 'react';
-import { withInAppMessaging } from '@aws-amplify/ui-react-notifications';
-import '@aws-amplify/ui-react/styles.css';
-
 import './App.css';
 
 function App() {
