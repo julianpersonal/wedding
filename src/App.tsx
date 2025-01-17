@@ -3,22 +3,38 @@ import './App.css';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const weddingDate = new Date('2026-03-28');
   const today = new Date();
   const timeUntil = weddingDate.getTime() - today.getTime();
   const daysUntil = Math.ceil(timeUntil / (1000 * 60 * 60 * 24));
 
+  const handleNavClick = (section: string) => {
+    setActiveSection(section);
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <div className="wedding-app">
       <nav className="wedding-nav">
-        <div className="nav-links">
-          <button onClick={() => setActiveSection('home')}>Home</button>
-          <button onClick={() => setActiveSection('story')}>Our Story</button>
-          <button onClick={() => setActiveSection('details')}>Event Details</button>
-          <button onClick={() => setActiveSection('rsvp')}>RSVP</button>
-          <button onClick={() => setActiveSection('registry')}>Registry</button>
-          <button onClick={() => setActiveSection('travel')}>Travel & Stay</button>
+        <button 
+          className="mobile-menu-button"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <div className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`}>
+          <button onClick={() => handleNavClick('home')}>Home</button>
+          <button onClick={() => handleNavClick('story')}>Our Story</button>
+          <button onClick={() => handleNavClick('details')}>Event Details</button>
+          <button onClick={() => handleNavClick('rsvp')}>RSVP</button>
+          <button onClick={() => handleNavClick('registry')}>Registry</button>
+          <button onClick={() => handleNavClick('travel')}>Travel & Stay</button>
         </div>
       </nav>
 
