@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { withInAppMessaging } from '@aws-amplify/ui-react-notifications';
+import '@aws-amplify/ui-react/styles.css';
+
 import './App.css';
 
 function App() {
@@ -25,7 +28,7 @@ function App() {
       <main className="wedding-content">
         {activeSection === 'home' && (
           <section className="home-section">
-            <h1>Julian's Wedding</h1>
+            <h1>Riki and Julian's Wedding</h1>
             <div className="countdown">
               <h2>{daysUntil} Days Until We Say "I Do"</h2>
               <p>March 28th, 2026</p>
